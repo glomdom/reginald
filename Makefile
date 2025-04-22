@@ -28,7 +28,7 @@ EFI_TARGET := build/reginald.efi
 all: $(EFI_TARGET) $(COMPILE_COMMANDS)
 
 $(EFI_TARGET): build/reginald.so $(HDRS)
-	@printf " %-12s %s\n" "OBJCOPY" "$<"
+	@printf " %-12s %s -> %s\n" "OBJCOPY" "$<" "$@"
 	@objcopy $(OBJCOPY_FLAGS) $< $@
 
 $(COMPILE_COMMANDS): $(SRCS) $(HDRS)
@@ -59,7 +59,7 @@ qemu: build/reginald.efi $(OVMF) $(RUN_IMAGE)
 
 $(RUN_IMAGE): $(EFI_TARGET)
 	@mkdir -p $(dir $@)
-	@printf " %-12s %s\n" "LN" "$@"
+	@printf " %-12s %s -> %s\n" "LN" "$<" "$@"
 	@ln -sf $(abspath $(EFI_TARGET)) $@
 
 $(OVMF):
