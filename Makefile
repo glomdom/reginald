@@ -1,7 +1,7 @@
 CC            ?= clang++
 LD 			  ?= clang++
 CFLAGS        := -fPIC -ffreestanding -fno-stack-protector -fno-stack-check -fshort-wchar -mno-red-zone -MMD -MP
-EFI_DIR       := $(PWD)/gnu-efi
+EFI_DIR       := $(PWD)/vendor/gnu-efi
 INCLUDES      := -I$(EFI_DIR)/inc
 CRT0          := $(EFI_DIR)/x86_64/gnuefi/crt0-efi-x86_64.o
 LDSCRIPT      := $(EFI_DIR)/gnuefi/elf_x86_64_efi.lds
