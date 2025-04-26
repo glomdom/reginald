@@ -34,8 +34,6 @@ efi_main(EFI_HANDLE ImageHandle, EFI_SYSTEM_TABLE* SystemTable) {
   reginald::Screen screen(SystemTable);
   screen.clear();
   screen.printfln(L"reginald bootloader v%d.%d", 69, 420);
-  screen.printfln();
-  screen.printfln(L"i am now going to ep1c haxx0r ur data");
 
   EFI_MEMORY_DESCRIPTOR* memMap = nullptr;
   UINTN memMapSize = 0;
